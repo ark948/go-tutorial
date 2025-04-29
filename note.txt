@@ -75,4 +75,27 @@ following the tutorial on the official website (go.dev)
 
     Use the fmt package's Sprintf function to create a greeting message.
     (basically a formatted string)
-    
+
+3. Call your code from another module
+
+    Moved greetings folder to a new top-level folder, "using-go-modules"
+    > cd "using-go-modules"
+    > mkdir hello
+    > cd hello
+
+    > go mod init example.com/hello
+
+    - in hello folder, create a hello.go file, in this file we'll call the Hello function from the greetings module
+
+    For production use, you’d publish the example.com/greetings module from its repository (with a module path that reflected its published location), where Go tools could find it to download it. For now, because you haven't published the module yet, you need to adapt the example.com/hello module so it can find the example.com/greetings code on your local file system.
+
+    To do that, use the go mod edit command to edit the example.com/hello module to redirect Go tools from its module path (where the module isn't) to the local directory (where it is).
+
+    > go mod edit -replace example.com/greetings=../greetings
+    (the go.mod file in hello dir, must be now include a replace directive)
+
+    - now run go mod tidy command to synchronize
+    > go mod tidy
+
+    - finally run the code (you must be in hello dir)
+    > go run .
