@@ -5,41 +5,74 @@ following the tutorial on the official website (go.dev)
 
 
 1. Get started with Go
-(I already have installed Go compiler)
 
-- create a new folder called 'hello':
-> mkdir hello
-> cd hello
+    (I already have installed Go compiler)
 
-
-- Enable dependency tracking for your code:
-a go.mod file tracks the modules provided by others (probably similar concept to package.json).
-should be include in the repository.
-
-to create this file:
-> go mod init example/hello (yes, the tutorial was inside hello directory)
-
-- create a hello.go file (did not exactly say where, i'm assuming in hello directory)
-in this file:
-a main package is declared. all files in the same directory belong to it.
-fmt package is imported. it contains functions to work with text. part of standard library of Go.
-a main function is declared. when the main package is ran, the main function will be executed by default. # IMPORTANT
-
-- to run the code:
-> go run .
+    - create a new folder called 'hello':
+    > mkdir hello
+    > cd hello
 
 
-Calling external packages:
-they can be found at: pkg.go.dev
+    - Enable dependency tracking for your code:
+    a go.mod file tracks the modules provided by others (probably similar concept to package.json).
+    should be include in the repository.
 
-we'll import this 'rsc.io/quote' module and use it in hello.go:
-(upon saving, vscode moved the import statement of this module next to the fmt import statement, it coupled them together)
+    to create this file:
+    > go mod init example/hello (yes, the tutorial was inside hello directory)
 
-- run the following command to aquire the modules (Go will do something called Authenticating the modules)
-> go mod tidy (looks like Go downloads these modules)
-a go.sum file is generated.
+    - create a hello.go file (did not exactly say where, i'm assuming in hello directory)
+    in this file:
+    a main package is declared. all files in the same directory belong to it.
+    fmt package is imported. it contains functions to work with text. part of standard library of Go.
+    a main function is declared. when the main package is ran, the main function will be executed by default. # IMPORTANT
 
-- now run the code:
-> go run .
+    - to run the code:
+    > go run .
 
-Don't communicate by sharing memory, share memory by communicating. (this message was printed)
+
+    Calling external packages:
+    they can be found at: pkg.go.dev
+
+    we'll import this 'rsc.io/quote' module and use it in hello.go:
+    (upon saving, vscode moved the import statement of this module next to the fmt import statement, it coupled them together)
+
+    - run the following command to aquire the modules (Go will do something called Authenticating the modules)
+    > go mod tidy (looks like Go downloads these modules)
+    a go.sum file is generated.
+
+    - now run the code:
+    > go run .
+
+    Don't communicate by sharing memory, share memory by communicating. (this message was printed)
+
+
+2. Create a Go module
+
+    In this tutorial, we'll create two modules, the first will be imported by the other one. the second is a caller which will use the first.
+
+    Go code is grouped into packages, and packages are grouped into modules.
+
+    - create a greetings directory
+    > mkdir greetings
+    > cd greetings
+
+    - create a new module by using go mod init command,
+    If you publish a module, this must be a path from which your module can be downloaded by Go tools. IMPORTANT
+    > go mod init example.com/greetings
+
+    go mod init will create a go.mod file, this file keeps the track of dependencies of your code.
+    so far, it only includes the name of your module, and the Go version.
+
+    the name of this package is greetings, in it, there will be a function named Hello, that will return a string
+    In Go, the := operator is a shortcut for declaring and initializing a variable in one line:
+
+        message := fmt.Sprintf("Hi, %v. Welcome!", name)
+
+    Taking the long way, you might have written this as:
+
+        var message string
+        message = fmt.Sprintf("Hi, %v. Welcome!", name)
+
+    Use the fmt package's Sprintf function to create a greeting message.
+    (basically a formatted string)
+    
