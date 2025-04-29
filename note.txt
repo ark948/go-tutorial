@@ -137,6 +137,19 @@ following the tutorial on the official website (go.dev)
     run the code multiple times, to see that it changes every time.
 
 
+6. Return greetings for multiple people
+
+    In this part, we'll handle multiple-value inputs, and multiple-value output.
+    (again, will update "error-handling" folder)
+
+    There is something to note, by changing the parameter of Hello function, the function's signature will change.
+    and if others have written code, that depends on this module, this will break their program.
+
+    So instead, we'll write a new function.
+
+    
+
+
 
 
 Commands summary:
