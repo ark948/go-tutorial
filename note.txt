@@ -33,3 +33,13 @@ Calling external packages:
 they can be found at: pkg.go.dev
 
 we'll import this 'rsc.io/quote' module and use it in hello.go:
+(upon saving, vscode moved the import statement of this module next to the fmt import statement, it coupled them together)
+
+- run the following command to aquire the modules (Go will do something called Authenticating the modules)
+> go mod tidy (looks like Go downloads these modules)
+a go.sum file is generated.
+
+- now run the code:
+> go run .
+
+Don't communicate by sharing memory, share memory by communicating. (this message was printed)
