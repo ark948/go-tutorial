@@ -1,0 +1,35 @@
+Starting to learn golang.
+
+
+following the tutorial on the official website (go.dev)
+
+
+1. Get started with Go
+(I already have installed Go compiler)
+
+- create a new folder called 'hello':
+> mkdir hello
+> cd hello
+
+
+- Enable dependency tracking for your code:
+a go.mod file tracks the modules provided by others (probably similar concept to package.json).
+should be include in the repository.
+
+to create this file:
+> go mod init example/hello (yes, the tutorial was inside hello directory)
+
+- create a hello.go file (did not exactly say where, i'm assuming in hello directory)
+in this file:
+a main package is declared. all files in the same directory belong to it.
+fmt package is imported. it contains functions to work with text. part of standard library of Go.
+a main function is declared. when the main package is ran, the main function will be executed by default. # IMPORTANT
+
+- to run the code:
+> go run .
+
+
+Calling external packages:
+they can be found at: pkg.go.dev
+
+we'll import this 'rsc.io/quote' module and use it in hello.go:
