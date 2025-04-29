@@ -121,6 +121,23 @@ following the tutorial on the official website (go.dev)
     (I tried providing a name, and the program ran with no problems)
 
 
+5. Return a random greeting
+    
+    In this part, instead of returning a single message every time, we'll return one of several predefined messages.
+    (this part, will update "error-handling" folder)
+
+    we'll use something called a Go slice. (it's like an array)
+
+    we'll add a new function to greetings.go called randomFormat.
+    Note that this function starts with a lowercase letter, making it accesible only to its own package (it is not exported). IMPORTANT
+
+    inside randomFormat, we declared a slice, by not specifying a size (empty bracket), we'll tell Go that the size of this slice is dynamic.
+    (it can change.)
+
+    run the code multiple times, to see that it changes every time.
+
+
+
 
 Commands summary:
     - to initialize a module
