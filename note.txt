@@ -99,3 +99,38 @@ following the tutorial on the official website (go.dev)
 
     - finally run the code (you must be in hello dir)
     > go run .
+
+
+4. Return and handle an error
+
+    In this part, we will throw some errors in greetings module, and then will handle them in caller module (hello)
+
+    in the greetings, we declared a Hello function, that can return either a string, or an error
+    in hello, we call the Hello from greetings, (with an empty string as input)
+    And capture both possible return values of this function. (Yes both)
+    The error will be raised, we'll log it, and then exit.
+    (Do not forget to configure the go.mod to use local file system, before running the program)
+    (in hello dir)
+    > go mod edit -replace example.com/greetings=../greetings
+    > go mod tidy
+
+    the result should be exit status 1
+
+    That's common error handling in Go: Return an error as a value so the caller can check for it. IMPORTANT
+
+    (I tried providing a name, and the program ran with no problems)
+
+
+
+Commands summary:
+    - to initialize a module
+    > go mod init <example.com/name>
+
+    - to run the code (main function will be executed by default)
+    > go run .
+
+    - to aquire dependencies
+    > go mod tidy
+
+    - to configure dependencies (not fully introduced yet)
+    > go mod edit
