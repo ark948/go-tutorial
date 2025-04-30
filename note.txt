@@ -218,6 +218,7 @@ Tutorial: Getting started with multi-module workspaces
     - first, clone the repo (from the workspace dir):
     > git clone https://go.googlesource.com/example
     (a new folder called example will be added)
+    
     (i added this folder to my gitignore - not exactly sure why)
 
     - second, add the module to workspace:
