@@ -175,6 +175,7 @@ following the tutorial on the official website (go.dev)
     > go list -f '{{.Target}}'
 
     (apparently by installing the program, it can be ran from anywhere in the command line)
+    (by installing, a binary executable of the program, will be placed in GOTPATH's bin directory of local system)
     (i will skip the install part, seems unnecessary for now)
 
 
