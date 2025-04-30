@@ -148,7 +148,20 @@ following the tutorial on the official website (go.dev)
     So instead, we'll write a new function.
 
     
+7. Add a test
 
+    In this part, we'll add some tests.
+    add a file to greetings dir, named greetings_test.go (in error-handling directory)
+    it must be called <fileName>_test.go (must follow the naming convention)
+
+    in order for the go test command to be able to find the tests, test functions must follow the naming convention as well.
+    example: Test<FunctionName>()
+
+    to run the test:
+    > go test
+
+    to run the tests with more verbosity, run:
+    > go test -v
 
 
 
