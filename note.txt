@@ -165,6 +165,21 @@ following the tutorial on the official website (go.dev)
 
 
 
+8. Compile and install the application
+
+    This part, will introduce some additional commands for building code.
+    - navigate to hello directory (in error-handling) and the run the following command to build exe file (to compile):
+    > go build
+
+    - the following command will print the full path of the compiled program:
+    > go list -f '{{.Target}}'
+
+    (apparently by installing the program, it can be ran from anywhere in the command line)
+    (i will skip the install part, seems unnecessary for now)
+
+
+
+
 ----------------------------------------------------------------------------------------------------------
 Commands summary:
     - to initialize a module
