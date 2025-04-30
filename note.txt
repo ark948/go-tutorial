@@ -178,10 +178,64 @@ following the tutorial on the official website (go.dev)
     (i will skip the install part, seems unnecessary for now)
 
 
+----------------------------------------------------------------------------------------------------------
+Tutorial: Getting started with multi-module workspaces
+
+    In this part, we'll tell Go that we're writing code multiple modules at the same time.
+    (this is basically the definition of Go workspaces, Go workspaces help you manage multiple modules within a single project.)
+    (requires Go 1.18 or later)
+
+    - first create a new folder for our workspace
+    > mkdir workspace
+    > cd workspace
+
+    - create a hello module
+    > mkdir hello
+    > cd hello
+    > go mod init example.com/hello
+    (this module will depend on another module called golang.org/x/example)
+
+    - Add a dependency on the golang.org/x/example/hello/reverse package by using go get.
+    > go get golang.org/x/example/hello/reverse
+
+    - now create a hello.go file and add the code and run the code
+    (result: String is reversed)
+
+    - now it's time to initialize a new workspace:
+    - in the workspace dir, run:
+    > go work init ./hello
+    (a go.work file will be created)
+    the first line, says what version of Go, the file must be interpreted with. (the go directive)
+    the (use directive) tells Go that the hello module should be the main module when doing a build.
+
+    - now we can run the program in the workspace directory, the result will be like building the hello module itself
+    > go run ./hello
+
+    => Download and modify the golang.org/x/example/hello module
+    in this part, we'll download a copy of Git repo containing golang.org/x/example/hello module.
+    we'll add it to the workspace, and then add a new function.
+
+    - first, clone the repo (from the workspace dir):
+    > git clone https://go.googlesource.com/example
+    (a new folder called example will be added)
+    (i added this folder to my gitignore - not exactly sure why)
+
+    - second, add the module to workspace:
+    > go work use ./example/hello
+    (this will udpate the go.work file)
+    (our workspace, now includes both our hello module, and the hello module from example Repo, which reverse resides in)
+
+    - third, we'll add a new function that will reverse a number
+    - Create a new file named int.go in the workspace/example/hello/reverse directory.
+    
+    => Future step (skipped)
 
 
 ----------------------------------------------------------------------------------------------------------
 Commands summary:
+    - to check the version of installed Go:
+    > go version
+
     - to initialize a module
     > go mod init <example.com/name>
 
@@ -199,3 +253,15 @@ Commands summary:
 
     - to run tests with more verbosity:
     > go test -v
+
+    - to create a workspace:
+    > go work init ./<theFolderNameOfMainMoudle>
+    example: workspace> go work init ./hello
+
+    - to add a dependency:
+    > go get <Address to package>
+    example: > go get golang.org/x/example/hello/reverse
+
+    - to add a module to workspace:
+    > go work use ./<moduleName>
+    example: > go work use ./example/hello
