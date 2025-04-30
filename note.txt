@@ -165,6 +165,7 @@ following the tutorial on the official website (go.dev)
 
 
 
+----------------------------------------------------------------------------------------------------------
 Commands summary:
     - to initialize a module
     > go mod init <example.com/name>
@@ -177,3 +178,9 @@ Commands summary:
 
     - to configure dependencies (not fully introduced yet)
     > go mod edit
+
+    - to run tests (test files and test functions must follow naming convention)
+    > go test
+
+    - to run tests with more verbosity:
+    > go test -v
